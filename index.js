@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { sequelize } from './config/Database.js';
 import carRoute from './routes/CarRoute.js';
+import methodOverride from 'method-override';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -10,6 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 
 // Setting EJS as templating engine
 app.set('view engine', 'ejs');

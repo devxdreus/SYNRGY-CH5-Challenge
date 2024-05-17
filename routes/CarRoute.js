@@ -17,7 +17,7 @@ router.get('/', getAllCars);
 router.get('/create', renderCreateCarForm);
 router.post('/', upload.single('img'), createCar);
 router.get('/edit/:id', renderEditCarForm);
-router.post('/:id', upload.single('img'), updateCar);
-router.get('/delete/:id', deleteCar);
+router.put('/:id', upload.single('img'), updateCar);
+router.delete('/:id', deleteCar);
 
 export default router;
