@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Car</title>
+    </head>
+    <body>
+        <h1>Edit Car</h1>
+        <form
+            action="/cars/<%= car.id %>"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            <input type="hidden" name="oldImg" value="<%= car.img %>" />
+            <label for="name">Name:</label>
+            <input
+                type="text"
+                name="name"
+                id="name"
+                value="<%= car.name %>"
+                required
+            /><br />
+            <label for="price">Price:</label>
+            <input
+                type="number"
+                name="price"
+                id="price"
+                value="<%= car.price %>"
+                required
+            /><br />
+            <label for="size">Size:</label>
+            <input
+                type="text"
+                name="size"
+                id="size"
+                value="<%= car.size %>"
+                required
+            /><br />
+            <label for="img">Image:</label>
+            <input type="file" name="img" id="img" /><br />
+            <button type="submit">Update Car</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Car Management</title>
+    </head>
+    <body>
+        <h1>Car Management</h1>
+        <a href="/cars/create">Add New Car</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Size</th>
+                    <th>Image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% cars.forEach(function(car) { %>
+                <tr>
+                    <td><%= car.id %></td>
+                    <td><%= car.name %></td>
+                    <td><%= car.price %></td>
+                    <td><%= car.size %></td>
+                    <td>
+                        <img
+                            src="/uploads/<%= car.img %>"
+                            alt="<%= car.name %>"
+                            width="100"
+                        />
+                    </td>
+                    <td>
+                        <a href="/cars/edit/<%= car.id %>">Edit</a>
+                        <a href="/cars/delete/<%= car.id %>">Delete</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </body>
+</html>
